@@ -250,7 +250,25 @@ $fetch = $list->fetch_assoc();
             })
 
             
+            // filter task
 
+            $("#filterTask").change( function() {
+                const filterValue = $(this).val();
+
+
+                $.ajax({
+                    url: "filter.php",
+                    method: "post",
+                    data: {
+                        filterValue
+                    },
+                    success(e){
+                        $("#wrapper").html(e);
+                        
+                        
+                    }
+                })
+            })
 
         })
     </script>
